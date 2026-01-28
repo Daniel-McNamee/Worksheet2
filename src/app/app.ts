@@ -11,7 +11,7 @@ export class App {
   protected readonly title = signal('Worksheet2');
 
   // Populate movies array
-  movies: string[] = [
+  movies = signal<string[]>([
   'Inception',
   'The Matrix',
   'Interstellar',
@@ -24,36 +24,33 @@ export class App {
   'Spirited Away',
   'Fight Club',
   'The Lord of the Rings'
-  ];
-
+  ]);
 
   // Create empty array for favourites
-    favourites: string[] = [];
+  favourites = signal<string[]>([]);
 
 addToFavourites(movie: string) {
   // Add to favourites
-  this.favourites.push(movie);
+  this.favourites.update(favs => [...favs, movie]);
 
-  // Given string so must find index using indexOf
-  const index = this.movies.indexOf(movie);
-
-  // If indexOf cannot find the index it returns -1
-  if (index !== -1) {
     // Remove from movies list
-    this.movies.splice(index, 1);
+    this.movies.update(movies =>
+      movies.filter(m => m !== movie)
+    );
   }
-}
+
 
 deleteFavourite(index: number) {
-  // Here we already know the index as it is given as a parameter
-  const movie = this.favourites[index];
+  // Get the movie at this index
+  const movie = this.favourites()[index];
 
   // Add to movies list
-  this.movies.push(movie);
+  this.movies.update(movies => [...movies, movie]);
   // Remove from favourites
-  this.favourites.splice(index, 1);
+  this.favourites.update(favs =>
+    favs.filter((_, i) => i !== index)
+  );
 }
-
 
 
 }

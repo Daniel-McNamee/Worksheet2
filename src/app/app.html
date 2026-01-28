@@ -9,7 +9,7 @@
 <h1>Movie List</h1>
 
 <ul>
-  @for (movie of movies; let i = $index; track i) {
+  @for (movie of movies(); let i = $index; track i) {
     <li [class.even]="i % 2 === 0" [class.odd]="i % 2 === 1">
       <button (click)="addToFavourites(movie)">Favourite</button>
       {{ movie }}
@@ -22,15 +22,15 @@
 
 <!-- Favourites Count -->
 <p>
-  @if (favourites.length === 0) {
+  @if (favourites().length === 0) {
     none selected
   } @else {
-    {{ favourites.length }} movies chosen
+    {{ favourites().length }} movies chosen
   }
 </p>
 
 <ul>
-  @for (fav of favourites; let i = $index; track i) {
+  @for (fav of favourites(); let i = $index; track i) {
     <li [class.even]="i % 2 === 0" [class.odd]="i % 2 === 1">
       <button (click)="deleteFavourite(i)">Delete</button>
       {{ fav }}
