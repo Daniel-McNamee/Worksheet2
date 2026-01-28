@@ -21,6 +21,6 @@ export class App {
     favourites: string[] = [];
 
   addToFavourites(movie: string) {
-    alert(movie);
-  }
+  this.favourites.push(movie);
+}
 }
