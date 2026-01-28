@@ -23,4 +23,10 @@ export class App {
   addToFavourites(movie: string) {
   this.favourites.push(movie);
 }
+
+deleteFavourite(index: number) {
+  this.favourites.splice(index, 1);
+}
+
+
 }

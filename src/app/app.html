@@ -17,8 +17,11 @@
 <h1>Favourites</h1>
 
 <ul>
-  @for (fav of favourites; track fav) {
-    <li>{{ fav }}</li>
+  @for (fav of favourites; let i = $index; track i) {
+    <li>
+      {{ fav }}
+      <button (click)="deleteFavourite(i)">Delete</button>
+    </li>
   }
 </ul>
 
