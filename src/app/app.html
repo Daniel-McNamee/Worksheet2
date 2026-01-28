@@ -7,9 +7,13 @@
 
 <ul>
   @for (movie of movies; track movie) {
-    <li>{{ movie }}</li>
+    <li>
+      {{ movie }}
+      <button (click)="addToFavourites(movie)">Add to favourites</button>
+    </li>
   }
 </ul>
+
 
 
 

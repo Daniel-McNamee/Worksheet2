@@ -17,4 +17,10 @@ export class App {
     'Gladiator',
     'The Dark Knight'
   ];
+
+    favourites: string[] = [];
+
+  addToFavourites(movie: string) {
+    alert(movie);
+  }
 }
