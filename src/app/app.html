@@ -1,30 +1,26 @@
 <main class="main">
 
+<!-- Student Info -->
+<h1>Week 2 - Favourite Movies App</h1>
 <p>Name: Daniel McNamee</p>
 <p>StudentID: S00273249</p>
 
-<h1>Movies</h1>
+<!-- Movies List -->
+<h1>Movie List</h1>
 
 <ul>
-  @for (movie of movies; track movie) {
-    <li>
+  @for (movie of movies; let i = $index; track i) {
+    <li [class.even]="i % 2 === 0" [class.odd]="i % 2 === 1">
+      <button (click)="addToFavourites(movie)">Favourite</button>
       {{ movie }}
-      <button (click)="addToFavourites(movie)">Add to favourites</button>
     </li>
   }
 </ul>
 
-<h1>Favourites</h1>
+<!-- Favourites List -->
+<h1>My Favourites</h1>
 
-<ul>
-  @for (fav of favourites; let i = $index; track i) {
-    <li>
-      {{ fav }}
-      <button (click)="deleteFavourite(i)">Delete</button>
-    </li>
-  }
-</ul>
-
+<!-- Favourites Count -->
 <p>
   @if (favourites.length === 0) {
     none selected
@@ -33,7 +29,14 @@
   }
 </p>
 
-
+<ul>
+  @for (fav of favourites; let i = $index; track i) {
+    <li [class.even]="i % 2 === 0" [class.odd]="i % 2 === 1">
+      <button (click)="deleteFavourite(i)">Delete</button>
+      {{ fav }}
+    </li>
+  }
+</ul>
 
 </main>
 

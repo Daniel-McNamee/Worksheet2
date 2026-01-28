@@ -1,0 +1,22 @@
+.even {
+  background-color: #888;
+}
+
+.odd {
+  background-color: #ccc;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px 12px;
+  margin-bottom: 4px;
+}
+
+button {
+  margin-right: 8px;
+}
