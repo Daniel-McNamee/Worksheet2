@@ -25,6 +25,14 @@
   }
 </ul>
 
+<p>
+  @if (favourites.length === 0) {
+    none selected
+  } @else {
+    {{ favourites.length }} movies chosen
+  }
+</p>
+
 
 
 </main>
